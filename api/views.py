@@ -6,6 +6,9 @@ from django.utils.dateparse import parse_date
 from .models import TodoList
 import json
 
+from rest_framework import viewsets
+from .serializers import TodoListSerializer
+
 # Create your views here.
 
 # Serve the frontend webpage
@@ -124,3 +127,8 @@ def deleteTodo(request, todo_id):
 
         except Exception as e:
             return JsonResponse({'message': str(e)}, status=400)
+        
+# Viewset handles all CRUD operations on the todolist model
+class TodoListViewSet(viewsets.ModelViewSet):
+    queryset = TodoList.objects.all()
+    serializer_class = TodoListSerializer
