@@ -21,12 +21,7 @@ const TodoWrapper = () => {
     // This will be passed to children components so that they can
     // edit the existing todo items
     const changeEditTodoId = (newId) => {
-        console.log('inside change edit todo id now');
-        console.log(editTodoId); // Prints out 0
-        console.log(newId); // Prints out 12
         setEditTodoId(newId);
-        console.log('after changing edit todo id');
-        console.log(editTodoId); // Prints out 0
     };
 
     // Send GET request to the backend and update the todo items
